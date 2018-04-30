@@ -22,7 +22,7 @@ var mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect("mongodb://rhlrj:fifiakekel7@ds263759.mlab.com:63759/easy-notes");
+mongoose.connect("mongodb://admin:1234@ds263759.mlab.com:63759/easy-notes");
 
 mongoose.connection.on('error', function() {
     console.log('Could not connect to the database. Exiting now...');
