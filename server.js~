@@ -71,7 +71,7 @@ app.post('/content', (req, res) => {
 
 // define a simple route
 app.get('/', function(req, res){
-    res.json({"message": "Welcome to my first application. Get reviewed. Find a publisher. "});
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 require('./app/routes/user.routes.js')(app);
 require('./app/routes/note.routes.js')(app);
