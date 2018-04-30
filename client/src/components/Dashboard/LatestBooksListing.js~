@@ -1,0 +1,29 @@
+import React, { Component } from 'react';
+import {Grid, Row, Col, Panel,Image} from 'react-bootstrap';
+import BookListing from './BookListing.js';
+import Book from './Book'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  withRouter
+} from "react-router-dom";
+
+
+class LatestBooksListing extends React.Component{
+	render(){
+		return(
+  			<Row className="show-grid">
+    			<p>Latest Books
+    				<Link to="/book">
+    					<BookListing book={this.props.book}/>
+    				</Link>
+    			</p>
+    			<Route path="/book" component={Book}/>
+    		</Row>
+    	)
+	}
+	}
+	
+	export default LatestBooksListing;

@@ -1,0 +1,30 @@
+import React, { Component } from 'react';
+import {Row, Col, Grid, Media} from 'react-bootstrap';
+import axios from 'axios';
+import './HomePageStyle.css';
+
+class HomePageCard extends React.Component{
+		
+	
+	render(){
+		const htmlString = this.props.note.content;
+		const Content= () => (
+  <div dangerouslySetInnerHTML={{ __html: htmlString }} />
+);
+		return(
+				<Col xs={6} md={4}>				
+				<div className="cards">
+  					<img className="card-image" src={this.props.note.imageurl} alt="Avatar"/ >
+  					<div className="card-texts">
+    				<h5><b>{this.props.note.title}</b></h5>
+    				<p> {this.props.note.author} {this.props.note.createdAt}</p>
+    				<h7><Content/> ...</h7>
+    				
+    				</div>
+				</div> 
+				<br/>
+				</Col>	
+				)
+			}
+		}
+export default HomePageCard;

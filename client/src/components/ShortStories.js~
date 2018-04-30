@@ -1,0 +1,71 @@
+import React, { Component } from 'react';
+import {Row, Col, Button, Grid} from 'react-bootstrap';
+import ShortStoryComponent from './ShortStoryComponent';
+import axios from 'axios';
+import MyEditor from './MyEditor';
+import {connect} from 'react-redux';
+import { ARTICLE_PAGE_LOADED, ARTICLE_PAGE_UNLOADED } from '../constants/actionTypes';
+ 
+
+
+const mapStateToProps = state => ({
+  ...state.article,
+  currentUser: state.common.currentUser
+});
+
+const mapDispatchToProps = dispatch => ({
+  onLoad: payload =>
+    dispatch({ type: ARTICLE_PAGE_LOADED, payload }),
+  onUnload: () =>
+    dispatch({ type: ARTICLE_PAGE_UNLOADED })
+});
+
+class ShortStories extends React.Component{
+	
+	constructor(props, context) {
+    super(props, context);
+
+    
+
+    this.state = {
+      notes:[],
+      persons:[]
+      
+    };
+  }
+  
+  componentDidMount() {
+	  
+    axios.get('/notes')
+      .then(
+      
+      res => {
+        const notes = res.data;
+        this.setState({ notes });
+        console.log(this.state.notes);
+        console.log("haha");
+      })
+  }
+	render(){
+		return(
+				<Grid>
+				
+				<Row>
+				
+					
+					
+				</Row>
+				<ul>
+        			 { this.state.notes.map(note => <div><ShortStoryComponent note={note}/></div>)}
+      		</ul>
+      			
+      			
+      			      		</Grid>
+
+
+    	
+    	)
+	}
+	}
+	
+	export default connect(mapStateToProps, mapDispatchToProps)(ShortStories);

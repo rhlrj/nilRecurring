@@ -1,0 +1,77 @@
+import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom'
+import {Carousel, Row, Col, Grid, Media} from 'react-bootstrap';
+import axios from 'axios';
+import HomePageCard from './HomePageCard';
+import './HomePageStyle.css';
+import {connect} from 'react-redux';
+
+const mapStateToProps = state => ({
+  ...state.articleList,
+  token: state.common.token
+});
+
+
+class HomePage extends React.Component{
+	constructor(props, context) {
+    super(props, context);
+
+    
+
+    this.state = {
+      notes:[],
+    };
+  }
+ 
+  
+  componentDidMount() {
+    axios.get('/notes')
+      .then(res => {
+        const notes = res.data;
+        this.setState({ notes });
+       
+      })
+  }
+  
+	render(){
+		return(
+				<div>
+				<br/>
+				<Grid>
+					<Col>
+						<div className="wrapper" >
+							<img  className="mainpage-picture" src="https://mariamsreads.files.wordpress.com/2015/10/bigstock-old-books-on-a-wooden-shelf-52703338.jpg?w=1200&h=400&crop=1"/>
+							<div className="description">
+								<p class='description_content'>Get Discovered</p>
+							</div>
+												
+						</div>					
+					<hr/>
+					</Col>
+				</Grid>			
+				<Grid>
+					<hr/>
+					<Row>
+						<Col>
+							<p className="mainpage-subheading"> Featured Articles</p>
+						</Col>
+						
+					</Row>
+					<br/>
+					<Row className="row-eq-height">
+					<Col >
+        			 { this.state.notes.map(note => <div><HomePageCard note={note}  /></div>)}
+      			</Col>
+      			</Row>
+				<br/>
+					
+				</Grid>
+				
+				</div>
+
+    	
+    	)
+	}
+	}
+	
+	export default connect(mapStateToProps)(HomePage);

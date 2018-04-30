@@ -1,0 +1,17 @@
+import React, { Component } from 'react';
+import {Grid, Row, Col, Panel,Image} from 'react-bootstrap';
+import BookListing from './BookListing.js';
+
+class TopBooksListing extends React.Component{
+	render(){
+		return(
+  			<Row className="show-grid">
+    			<Col xs={9} md={6}>Top Books
+    			<BookListing/>
+    			</Col>
+    		</Row>
+    	)
+	}
+	}
+	
+	export default TopBooksListing;

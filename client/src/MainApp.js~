@@ -1,0 +1,42 @@
+import React, {Component} from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  withRouter
+} from "react-router-dom";
+import Header from './components/Header'
+import App from './components/App'
+import Footer from './components/Footer'
+import Dashboard from './components/Dashboard/dashboard'
+import createBrowserHistory from 'history/createBrowserHistory';
+
+class MainApp extends React.Component{
+
+constructor(props) {
+        super(props);
+        this.state = {
+            loggedIn: false,
+            name: '',
+   			email:''
+        };    
+    }
+    
+     myCallback = (name) => {
+        this.setState({ name:name});
+    }
+  
+    render(){   
+    return(
+  <Router history={browserHistory}>
+    <div>
+      <Header callbackFromMain={this.myCallback}/>
+      <span><App name={this.state.name}/></span>
+      <Footer/>
+    </div>
+  </Router>
+)
+}}
+
+export default MainApp;

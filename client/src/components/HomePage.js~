@@ -1,0 +1,49 @@
+import React, { Component } from 'react';
+import {Carousel, Row, Col, Grid} from 'react-bootstrap';
+
+
+class HomePage extends React.Component{
+	render(){
+		return(
+				<div>
+    			<Carousel>
+  					<Carousel.Item>
+    					<img width={1600} height={400} alt="900x500" src="https://indiahikes.com/wp-content/uploads/cache/2016/05/Hampta-Pass-Banner-1600-x-500/3704946576.jpg" />
+    				</Carousel.Item>
+  					<Carousel.Item>
+    					<img width={1600} height={400} alt="900x500" src="http://www.museumofknowledge.com/wp-content/uploads/2017/02/Museum-of-Knowledge-About-Us-3-1600-x-500.jpg" />
+    				</Carousel.Item>
+  					<Carousel.Item>
+    					<img width={1600} height={400} alt="900x500" src="https://www.hoteljen.com/uploadedImages/Hotel_Jens/Hotel_Jen,_Beijing/press-room/HJB_1-About-Home-Banner-1600-x-500.jpg" />
+   				</Carousel.Item>
+				</Carousel>
+				
+				<br/>
+				<Grid>
+					<Row>
+						<Col xs={12} md={8}>
+							<h1> Random Heading</h1>
+						</Col>
+					</Row>
+				<br/>
+					<Row>
+						<Col xs={18} md={12}>
+							<p> loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...
+							</p>
+						</Col>
+					</Row>
+				</Grid>
+				</div>
+
+    	
+    	)
+	}
+	}
+	
+	export default HomePage;

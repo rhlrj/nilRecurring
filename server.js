@@ -1,0 +1,86 @@
+var express = require('express');
+var bodyParser = require('body-parser');
+var formidable = require('formidable');
+var fs=require('fs-extra');
+var util= require('util');
+// create express app
+const storage =require('node-persist');
+var app = express();
+var session = require('express-session');
+var passport = require('passport');
+var cors = require('cors');
+app.use(cors());
+
+app.use(require('morgan')('dev'));
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(require('method-override')());
+
+// Configuring the database
+var dbConfig = require('./config/database.config.js');
+var mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise;
+
+mongoose.connect(dbConfig.url);
+
+mongoose.connection.on('error', function() {
+    console.log('Could not connect to the database. Exiting now...');
+    process.exit();
+});
+
+mongoose.connection.once('open', function() {
+    console.log("Successfully connected to the database");
+})
+
+app.use(session({ secret: 'conduit', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false  }));
+
+
+storage.init({
+  dir: 'data',
+  stringify: JSON.stringify,
+  parse: JSON.parse,
+  encoding: 'utf8',
+}).then(() => {
+  console.log('storage initialized');
+}).catch((e) => {
+  console.log('storage initialization failed');
+  console.error(e);
+});
+
+
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }))
+
+// parse requests of content-type - application/json
+app.use(bodyParser.json())
+app.get('/content', (req, res) => {
+  storage.getItem('content', (err, val) => {
+    res.json(val || null);
+  });
+});
+
+app.post('/content', (req, res) => {
+  storage.setItem('content', req.body.content, (err, val) => {
+    res.json({ok: true});
+  });
+});
+
+
+
+
+// define a simple route
+app.get('/', function(req, res){
+    res.json({"message": "Welcome to my first application. Get reviewed. Find a publisher. "});
+});
+require('./app/routes/user.routes.js')(app);
+require('./app/routes/note.routes.js')(app);
+require('./config/passport');
+
+
+
+
+app.listen(5000, function(){
+    console.log("Server is listening on port 5000");
+});
+	

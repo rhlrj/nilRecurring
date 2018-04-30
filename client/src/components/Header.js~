@@ -1,0 +1,91 @@
+import React, {Component} from "react";
+import Navbar from 'react-bootstrap/lib/Navbar';
+import Nav from 'react-bootstrap/lib/Nav';
+import MenuItem from 'react-bootstrap/lib/MenuItem';
+import NavDropdown from 'react-bootstrap/lib/NavDropdown';
+import NavItem from 'react-bootstrap/lib/NavItem';		
+import './HeaderStyle.css';
+import { GoogleLogin } from 'react-google-login';
+
+
+
+//import GoogleLogin from './GoogleLogin/index';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  withRouter
+} from "react-router-dom";
+import ShortStories from './ShortStories';
+import MyEditor from './MyEditor';
+
+
+class Header extends React.Component{
+	 
+     myCallback = (name) => {
+     		console.log(name +"in header")
+        this.props.callbackFromMain(name);
+    }
+    
+	render(){
+		const responseGoogle = (response) => {
+  console.log(response);
+}
+
+ 
+
+		return(
+		<div className= "HeaderContainer" >  
+			<Navbar collapseOnSelect className="Menutab">
+  				<Navbar.Header>
+    				<Navbar.Brand>
+      				<Link to="/"></Link>
+    				</Navbar.Brand>
+    				<Navbar.Toggle />
+  				</Navbar.Header>
+  				<Navbar.Collapse>
+    			<Nav>
+      		<NavItem eventKey={1}>
+      			<Link to='/short-stories'>
+        					Short Stories
+        			</Link>
+      		</NavItem>
+      		<NavItem eventKey={2} >
+      		
+      			<Link to='/write'>
+        			Books
+        			</Link>
+      		</NavItem>
+      		<NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+        			<MenuItem eventKey={3.1}>Action</MenuItem>
+        			<MenuItem eventKey={3.2}>Another action</MenuItem>
+        			<MenuItem eventKey={3.3}>Something else here</MenuItem>
+        			<MenuItem divider />
+        			<MenuItem eventKey={3.3}>Separated link</MenuItem>
+      		</NavDropdown>
+    			</Nav>
+    			<Nav pullRight>
+      			<NavItem eventKey={1} >
+        				<GoogleLogin
+    clientId="498298523118-bpd0h502pttauid84pimt8i8ugr8b0hj.apps.googleusercontent.com"
+    buttonText="Login"
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+  />
+  
+  
+      				</NavItem>
+      			<NavItem eventKey={2} href="#">
+        				Link Right
+      			</NavItem>
+    			</Nav>
+  				</Navbar.Collapse>																	
+			</Navbar>
+					
+		</div>
+			)
+		}
+	}
+	
+	export default Header;

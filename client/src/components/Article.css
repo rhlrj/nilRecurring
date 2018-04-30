@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+.article-banner{
+	background-color:#A7B3A5;
+	color: #FFF	;
+	font-family:"Source Sans Pro";
+	font-size: 24px;
+	width:100%;
+	padding: 25px;
+	margin-bottom: 25px;
+}
+
+.delete-button{
+	float:right;
+	margin-right:40px;
+
+}
+.Demo__some-network {
+  vertical-align: top;
+  display: inline-block;
+  margin-right: 10px;
+  margin-top:10px;
+  text-align: center;
+}
+.Demo__some-network__share-count {
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+.Demo__some-network__share-button {
+  cursor: pointer;
+}
+
+.Demo__some-network__share-button:hover:not(:active) {
+  opacity: 0.75;
+}
+

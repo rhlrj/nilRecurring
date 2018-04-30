@@ -1,0 +1,37 @@
+import React, { Component } from 'react';
+import SaikuPDF from 'saiku-react-pdfjs';
+
+class Pdf extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onDocumentComplete = this.onDocumentComplete.bind(this);
+    this.onPageComplete = this.onPageComplete.bind(this);
+  }
+
+  onDocumentComplete(numberOfPages, pdf) {
+    this.setState({ numberOfPages });
+  },
+
+  onPageComplete(currentPage, page) {
+    this.setState({ currentPage });
+  }
+
+  render() {
+    return (
+      <div>
+        <SaikuPDF
+          file="./mozilla.pdf"
+          page={2}
+          scale={1}
+          onDocumentComplete={this.onDocumentComplete}
+          onPageComplete={this.onPageComplete}
+        />
+        <p>Page {this.state.currentPage} of {this.state.numberOfPages}</p>
+      </div>
+    );
+  }
+}
+
+
+export default Pdf;

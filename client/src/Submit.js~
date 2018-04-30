@@ -1,0 +1,15 @@
+import React, { Component } from 'react';
+import {Grid, Row, Col, Panel,Image} from 'react-bootstrap';
+
+
+class Submit extends React.Component{
+	render(){
+		return(
+  			<Row>
+    			
+    		</Row>
+    	)
+	}
+	}
+	
+	export default Submit;

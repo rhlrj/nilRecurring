@@ -1,0 +1,57 @@
+import React, { Component } from 'react';
+import {Row, Col, Grid} from 'react-bootstrap';
+
+
+class ShortStories extends React.Component{
+	render(){
+		return(
+				<div>
+    			
+				<Grid>
+					<Row>
+						<Col xs={12} md={8}>
+							<h1> Short Story 1 </h1>
+						</Col>
+					</Row>
+				<br/>
+					<Row>
+						<Col xs={18} md={12}>
+							<p> loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...
+							</p>
+						</Col>
+					</Row>
+				</Grid>
+				<Grid>
+					<Row>
+						<Col xs={12} md={8}>
+							<h1> Short Story 2 </h1>
+						</Col>
+					</Row>
+				<br/>
+					<Row>
+						<Col xs={18} md={12}>
+							<p> loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...loads and loads of text etc...
+								loads and loads of text etc...loads and loads of text etc...
+							</p>
+						</Col>
+					</Row>
+				</Grid>
+				</div>
+
+    	
+    	)
+	}
+	}
+	
+	export default ShortStories;

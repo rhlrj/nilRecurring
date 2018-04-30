@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+.profile-banner { 
+	
+	background-color:#A7B3A5;
+	color: #FFF;
+	font-family:"Source Sans Pro";
+	font-size: 24px;
+	width:100%;
+	padding: 5px;
+	margin-bottom: 25px;
+	
+}
+
+
+.banner { 
+	
+	background-color:#B4DBC0;
+	color: #444;
+	font-family:"Source Sans Pro";
+	font-size: 24px;
+	width:120%;
+	padding: 10px;
+	margin-bottom: 25px;
+	
+}
+

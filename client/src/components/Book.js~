@@ -1,0 +1,9 @@
+import React , {Component} from 'react';
+
+class Book extends React.Component{
+	render(){
+	<div> Book</div>
+}
+}
+
+export default Book;
