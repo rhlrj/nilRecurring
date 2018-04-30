@@ -49,7 +49,7 @@ storage.init({
   console.error(e);
 });
 
-app.use((express.static('client/build'));
+app.use(express.static('client/build'));
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 
