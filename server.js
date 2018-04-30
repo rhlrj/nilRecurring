@@ -72,7 +72,7 @@ app.post('/content', (req, res) => {
 
 // define a simple route
 app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, 'client', 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'build'	, 'index.html'));
 });
 require('./app/routes/user.routes.js')(app);
 require('./app/routes/note.routes.js')(app);
