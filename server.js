@@ -49,7 +49,7 @@ storage.init({
   console.error(e);
 });
 
-
+app.use((express.static('client/build'));
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -71,9 +71,9 @@ app.post('/content', (req, res) => {
 
 
 // define a simple route
-app.get('/', function(req, res){
+/*app.get('/*', function(req, res){
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-});
+});*/
 require('./app/routes/user.routes.js')(app);
 require('./app/routes/note.routes.js')(app);
 require('./config/passport');
