@@ -22,7 +22,7 @@ var mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(dbConfig.url);
+mongoose.connect('mongodb://localhost:27017/easy-notes');
 
 mongoose.connection.on('error', function() {
     console.log('Could not connect to the database. Exiting now...');
