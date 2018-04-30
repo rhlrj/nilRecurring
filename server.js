@@ -8,6 +8,7 @@ const storage =require('node-persist');
 var app = express();
 var session = require('express-session');
 var passport = require('passport');
+var path=require('path');
 var cors = require('cors');
 app.use(cors());
 
