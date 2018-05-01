@@ -3,7 +3,7 @@ import _superagent from 'superagent';
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-const API_ROOT = 'https://glacial-cliffs-69621.herokuapp.com';
+const API_ROOT = '';
 
 const encode = encodeURIComponent;
 const responseBody = res =>{ 
