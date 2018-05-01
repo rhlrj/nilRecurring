@@ -45,10 +45,7 @@ class HomePage extends React.Component{
 
 	render(){
 		
-		if(this.props.homePagePosts.articles && this.props.genre1.articles){
-			const homePagePosts=this.props.homePagePosts;
-			const genre1=this.props.genre1;
-			 
+		if(this.props.homePagePosts.articles){
 		return(
 				<div>
 			{/*	<Grid>
