@@ -2,7 +2,7 @@ var Note = require('../models/note.model.js');
 var Draft = require('../models/draft.model.js');
 var User = require('../models/User.js');
 
-exports.create = function(req, res) {
+exports.create = function(req, res, next) {
 	
 	if(!req.body.article.content) {
         return res.status(400).send({message: "Note can not be empty"});
@@ -26,7 +26,7 @@ exports.create = function(req, res) {
         }
     })
     
- })
+ }).catch(next);
  
     // Create and Save a new Note
 	
@@ -54,7 +54,7 @@ exports.findAll = function(req, res, next) {
   if (typeof req.query.genre !=='undefined'){
 	  query.genre = req.query.genre;
   }
-
+	console.log("hey YOu");
   Promise.all([
     req.query.author ? User.findOne({username: req.query.author}) : null,
     req.query.favorited ? User.findOne({username: req.query.favorited}) : null
@@ -86,6 +86,7 @@ exports.findAll = function(req, res, next) {
       var articles = results[0];
       var articlesCount = results[1];
       var user = results[2];
+      console.log(articlesCount);
 	
       return res.json({
         articles: articles.map(function(article){	
@@ -108,7 +109,7 @@ exports.findOne = function(req, res, next) {
       req.article = article;
 
      return res.send(article);
-    })
+    }).catch(next);
 	
 	
     // Find a single note with a noteId
