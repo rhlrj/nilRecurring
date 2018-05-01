@@ -95,7 +95,7 @@ exports.findAll = function(req, res, next) {
         }),
         articlesCount: articlesCount
       });
-    })
+    });
   }).catch(next);
 };
 
