@@ -33,7 +33,7 @@ exports.create = function(req, res) {
    
 }
 
-exports.findAll = function(req, res) {
+exports.findAll = function(req, res, next) {
   var query = {};
   
   var limit = 20;
