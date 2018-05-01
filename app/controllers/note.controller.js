@@ -96,7 +96,7 @@ exports.findAll = function(req, res) {
         articlesCount: articlesCount
       });
     }).catch(function () {
-     console.log("Promise Rejected");
+     console.log("Promise Rejected");})
   }).catch(next);
 };
 
