@@ -42,9 +42,7 @@ exports.findAll = function(req, res, next) {
   if(typeof req.query.limit !== 'undefined'){
     limit = req.query.limit;
   }
-	console.log("get")
-	//console.log(req.payload)
-	//console.log(req.payload)
+	
   if(typeof req.query.offset !== 'undefined'){
     offset = req.query.offset;
   }
@@ -93,7 +91,7 @@ exports.findAll = function(req, res, next) {
         articles: articles.map(function(article){	
           return article.toJSONFor(user);
         }),
-        articlesCount: articlesCount
+        articlesCount: articlesCount;
       });
     });
   }).catch(next);
