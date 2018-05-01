@@ -38,8 +38,7 @@ class HomePage extends React.Component{
 	 console.log(this.props.currentUser);
 	
   this.props.onLoad(Promise.all([
-      agent.Articles.byGenre("horror"),
-      agent.Articles.byAuthor("person3")
+      agent.Articles.all()
     ]));
   }
 

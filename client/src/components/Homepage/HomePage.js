@@ -38,8 +38,7 @@ class HomePage extends React.Component{
 	 console.log(this.props.currentUser);
 	
   this.props.onLoad(Promise.all([
-      agent.Articles.byGenre("horror"),
-      agent.Articles.byAuthor("person3")
+      agent.Articles.all()
     ]));
   }
 
@@ -162,11 +161,7 @@ class HomePage extends React.Component{
 						
 						
 					</Row>
-					<Row>	
-						<MultipleItemCarousel title={"Recommended"} articles={this.props.genre1.articles}/>
-						<MultipleItemCarousel title={"Horror"} articles={this.props.genre1.articles}/>
-						<MultipleItemCarousel title={"Adventure"}articles={this.props.genre1.articles}/>
-					</Row>
+					
 				</Grid>		
 				<Grid>
 					<hr/>
