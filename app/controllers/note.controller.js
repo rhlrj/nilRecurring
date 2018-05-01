@@ -91,7 +91,7 @@ exports.findAll = function(req, res, next) {
         articles: articles.map(function(article){	
           return article.toJSONFor(user);
         }),
-        articlesCount: articlesCount;
+        articlesCount: articlesCount
       });
     });
   }).catch(next);
